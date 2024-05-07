@@ -231,54 +231,105 @@ itname.noninvarBH <- gsub("S", "SE", itname.noninvarBH)
 # Create figures ----------------------------------------------------------
 
 ## TCC
-ggplot(data = TCCdata[!TCCdata$Group == "Restricted",], aes(x = Theta, y = value, color = Group)) +
-  geom_line() +
+mycolors = c("#0bdd9b", "#2e4052", "#ffc857", "#e5323b")
+## TCC
+ggplot(data = TCCdata[!TCCdata$Group == "Restricted",], aes(x = Theta, y = value, color = Group, linetype = Group)) +
+  geom_line(linewidth = 2) +
   facet_wrap(~Block) +
   # ggtitle("Test Characteristic Curves", subtitle = "Adjusted for DIF") +
   ylab("Expected Test score") +
   xlab(expression(Theta)) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   theme(
     axis.title.y = element_text(size = 18), # Increase y-axis label size
     axis.title.x = element_text(size = 18),
     strip.text = element_text(size = 18),
-    legend.text = element_text(size = 16)   # Increase legend text size
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 16),
+    legend.position = "bottom" # Increase legend text size
   )
 
-
-ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[1:4],], aes(x = theta, y = prob, color = groupcol)) +
-  geom_line() +
+colnames(ICCwoW)[2] <- "Group"
+ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[1:4],], aes(x = theta, y = prob, color = Group, linetype = Group)) +
+  geom_line(size = 2) +
   facet_wrap(~itemNam) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   #ggtitle("Item Characteristic Curves", subtitle = "Adjusted for DIF without BH-adjustment without Student weights") +
   ylab("Expected Item probabilities") +
-  xlab(expression(Theta))
+  xlab(expression(Theta)) +
+  theme(axis.title.y = element_text(size = 18), # Increase y-axis label size
+        axis.title.x = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16),
+        legend.position = "bottom" 
+        )
 
-ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[5:8],], aes(x = theta, y = prob, color = groupcol)) +
-  geom_line() +
+ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[5:8],], aes(x = theta, y = prob, color = Group, linetype = Group)) +
+  geom_line(size = 2) +
   facet_wrap(~itemNam) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   #ggtitle("Item Characteristic Curves", subtitle = "Adjusted for DIF without BH-adjustment without Student weights") +
   ylab("Expected Item probabilities") +
-  xlab(expression(Theta))
+  xlab(expression(Theta))  +
+  theme(axis.title.y = element_text(size = 18), # Increase y-axis label size
+        axis.title.x = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16),
+        legend.position = "bottom" 
+  )
 
-ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[9:12],], aes(x = theta, y = prob, color = groupcol)) +
-  geom_line() +
+ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[9:12],], aes(x = theta, y = prob, color = Group, linetype = Group)) +
+  geom_line(size = 2) +
   facet_wrap(~itemNam) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   #ggtitle("Item Characteristic Curves", subtitle = "Adjusted for DIF without BH-adjustment without Student weights") +
   ylab("Expected Item probabilities") +
-  xlab(expression(Theta))
+  xlab(expression(Theta))  +
+  theme(axis.title.y = element_text(size = 18), # Increase y-axis label size
+        axis.title.x = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16),
+        legend.position = "bottom" 
+  )
 
-ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[13:16],], aes(x = theta, y = prob, color = groupcol)) +
-  geom_line() +
+ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[13:16],], aes(x = theta, y = prob, color = Group, linetype = Group)) +
+  geom_line(size = 2) +
   facet_wrap(~itemNam) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   #ggtitle("Item Characteristic Curves", subtitle = "Adjusted for DIF without BH-adjustment without Student weights") +
   ylab("Expected Item probabilities") +
-  xlab(expression(Theta))
+  xlab(expression(Theta))  +
+  theme(axis.title.y = element_text(size = 18), # Increase y-axis label size
+        axis.title.x = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16),
+        legend.position = "bottom" 
+  )
 
-ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[17:18],], aes(x = theta, y = prob, color = groupcol)) +
-  geom_line() +
+ggplot(data = ICCwoW[ICCwoW$itemNam %in% itname.noninvar[17:18],], aes(x = theta, y = prob, color = Group, linetype = Group)) +
+  geom_line(size = 2) +
   facet_wrap(~itemNam) +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   #ggtitle("Item Characteristic Curves", subtitle = "Adjusted for DIF without BH-adjustment without Student weights") +
   ylab("Expected Item probabilities") +
-  xlab(expression(Theta))
+  xlab(expression(Theta))  +
+  theme(axis.title.y = element_text(size = 18), # Increase y-axis label size
+        axis.title.x = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16),
+        legend.position = "bottom" 
+  )
 
 
 ggplot(data = ICCwoWBH[ICCwoWBH$itemNam %in% itname.noninvarBH[1:4],], aes(x = theta, y = prob, color = groupcol)) +
@@ -297,17 +348,22 @@ ggplot(data = ICCwoWBH[ICCwoWBH$itemNam %in% itname.noninvarBH[5:8],], aes(x = t
 
 ### Test information
 
-ggplot(data = info[!info$Group=="Restricted",], aes(x = Theta, y = value, color = Group)) +
-  geom_line() +
+ggplot(data = info[!info$Group=="Restricted",], aes(x = Theta, y = value, color = Group, linetype = Group)) +
+  geom_line(linewidth = 2) +
   facet_wrap(~Block) +
+  # ggtitle("Test Characteristic Curves", subtitle = "Adjusted for DIF") +
+  ylab("Expected Test score") +
   xlab(expression(Theta)) +
-  ylab("Test information") +
+  scale_linetype_manual(values =c("solid", "dashed", "dotted", "dotdash"))+
+  scale_color_manual(values = mycolors)+
   # ggtitle("Test Information Curves", subtitle = "Adjusted for DIF") +
   theme(
     axis.title.y = element_text(size = 18), # Increase y-axis label size
     axis.title.x = element_text(size = 18),
     strip.text = element_text(size = 18),
-    legend.text = element_text(size = 16)   # Increase legend text size
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 16),
+    legend.position = "bottom"# Increase legend text size
   )
 
 
