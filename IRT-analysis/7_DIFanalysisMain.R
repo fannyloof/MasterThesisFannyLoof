@@ -244,10 +244,10 @@ ggplot(data = TCCdata[!TCCdata$Group == "Restricted",], aes(x = Theta, y = value
   theme(
     axis.title.y = element_text(size = 18), # Increase y-axis label size
     axis.title.x = element_text(size = 18),
-    strip.text = element_text(size = 18),
+    strip.text = element_text(size = 18), # Increase legend text size
     legend.title = element_text(size = 18),
     legend.text = element_text(size = 16),
-    legend.position = "bottom" # Increase legend text size
+    legend.position = "bottom" 
   )
 
 colnames(ICCwoW)[2] <- "Group"
@@ -360,10 +360,10 @@ ggplot(data = info[!info$Group=="Restricted",], aes(x = Theta, y = value, color 
   theme(
     axis.title.y = element_text(size = 18), # Increase y-axis label size
     axis.title.x = element_text(size = 18),
-    strip.text = element_text(size = 18),
+    strip.text = element_text(size = 18), # Increase legend text size
     legend.title = element_text(size = 18),
     legend.text = element_text(size = 16),
-    legend.position = "bottom"# Increase legend text size
+    legend.position = "bottom"
   )
 
 
